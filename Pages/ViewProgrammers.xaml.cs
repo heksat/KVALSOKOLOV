@@ -55,5 +55,13 @@ namespace KVALSOKOLOV.Pages
         {
             NavigationService.Navigate(new CreateNewProgrammer(false));
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new KVALSOKOLOVEntities())
+            {
+                ViewPrgms.ItemsSource = db.Programmers.ToList();
+            }
+        }
     }
 }

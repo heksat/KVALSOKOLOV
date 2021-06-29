@@ -29,7 +29,7 @@
                 </Style>
             </DataGrid.RowStyle>
         </DataGrid>
-        <Button Content="Обновить" Canvas.Left="645" Canvas.Top="22" Width="134" Height="47"/>
+        <Button Content="Обновить" Canvas.Left="645" Canvas.Top="22" Width="134" Height="47" Click="Button_Click"/>
         <Button Content="Назад" Canvas.Left="665" Canvas.Top="366" Width="94" Height="39" Click="Back_Click"/>
         <TextBlock Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="10" Height="34" Width="106" Text="Поиск по:" FontSize="22"/>
         <Button Content="Добавить" Canvas.Left="652" Canvas.Top="314" Width="127" Height="25" Click="ADD_Click"/>

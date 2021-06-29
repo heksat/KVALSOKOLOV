@@ -27,7 +27,11 @@ namespace KVALSOKOLOV.Pages
         {
             InitializeComponent();
         }
+        static List<Requests> LoadeddatafromtextfileRequests = null;
+
         static List<Programmers> Loadeddatafromtextfileprogrammers = null;
+
+        static List<Senders> LoadeddatafromtextfileSenders = null;
 
         static List<Programmers> Loadeddatafrombinfileprogrammers = null;
 
@@ -78,6 +82,7 @@ namespace KVALSOKOLOV.Pages
 
                             foreach (var programmer in db.Programmers)
                             {
+                                await writer.WriteLineAsync(programmer.id.ToString());
                                 await writer.WriteLineAsync(programmer.LName);
                                 await writer.WriteLineAsync(programmer.FName);
                                 await writer.WriteLineAsync(programmer.SName);
@@ -98,7 +103,10 @@ namespace KVALSOKOLOV.Pages
 
         public async Task ReadTextFile()
         {
+            LoadeddatafromtextfileRequests = new List<Requests>();
+            LoadeddatafromtextfileSenders = new List<Senders>();
             Loadeddatafromtextfileprogrammers = new List<Programmers>();
+
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Please select a text file";
             ofd.Filter = "Text Files | *.txt";
@@ -111,11 +119,34 @@ namespace KVALSOKOLOV.Pages
                 {
                     using (var db = new KVALSOKOLOVEntities())
                     {
-
                         int count = Int32.Parse(await reader.ReadLineAsync());
                         for (int i = 0; i < count; i++)
                         {
+                            var temp = new Requests();
+                            temp.id = Int32.Parse(await reader.ReadLineAsync());//Int32.Parse(await reader.ReadLineAsync());
+                            temp.Name = await reader.ReadLineAsync();
+                            temp.description = await reader.ReadLineAsync();
+                            temp.Sender = Guid.Parse(await reader.ReadLineAsync());
+                            LoadeddatafromtextfileRequests.Add(temp);
+                        }
+                        int count2 = Int32.Parse(await reader.ReadLineAsync());
+                        for (int i = 0; i < count2; i++)
+                        {
+                            var temp = new Senders();
+                            temp.id = Guid.Parse(await reader.ReadLineAsync());//Int32.Parse(await reader.ReadLineAsync());
+                            temp.LName = await reader.ReadLineAsync();
+                            temp.FName = await reader.ReadLineAsync();
+                            temp.SName = await reader.ReadLineAsync();
+                            temp.datereg = DateTime.Parse(await reader.ReadLineAsync());
+                            temp.Version = await reader.ReadLineAsync();
+                            LoadeddatafromtextfileSenders.Add(temp);
+                        }
+
+                        int count3 = Int32.Parse(await reader.ReadLineAsync());
+                        for (int i = 0; i < count3; i++)
+                        {
                             var temp = new Programmers();
+                            temp.id = Guid.Parse(await reader.ReadLineAsync());
                             temp.LName = await reader.ReadLineAsync();//Int32.Parse(await reader.ReadLineAsync());
                             temp.FName = await reader.ReadLineAsync();
                             temp.SName = await reader.ReadLineAsync();
