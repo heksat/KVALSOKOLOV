@@ -8,7 +8,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainMenu">
 
-    <Grid>
-        
-    </Grid>
+    <Canvas>
+        <Button Content="Программисты" Canvas.Left="594" Canvas.Top="42" Width="155" Height="50" Click="GoViewProgrammers"/>
+        <Button Content="Запросы" Canvas.Left="594" Canvas.Top="147" Width="155" Height="50"/>
+        <Button Content="Отправители" Canvas.Left="594" Canvas.Top="253" Width="155" Height="50"/>
+        <Button Content="Сохр. в текст. файл" Canvas.Left="63" Canvas.Top="42" Width="155" Height="50" Click="SaveText_Click"/>
+        <Button Content="Загр. из текст. файла" Canvas.Left="63" Canvas.Top="134" Width="155" Height="50" Click="LoadText_Click" />
+        <Button Content="Сохр. в бин. файл" Canvas.Left="63" Canvas.Top="223" Width="155" Height="50" Click="SaveBin_Click"/>
+        <Button Content="Загр. из бин. файла" Canvas.Left="63" Canvas.Top="312" Width="155" Height="50" Click="LoadBin_Click" />
+
+    </Canvas>
 </Page>
