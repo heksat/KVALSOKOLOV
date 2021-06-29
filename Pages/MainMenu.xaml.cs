@@ -163,7 +163,11 @@ namespace KVALSOKOLOV.Pages
                             temp.Salary = Single.TryParse(await reader.ReadLineAsync(), out var tempval) ? (float?)tempval : null;
                             Loadeddatafromtextfileprogrammers.Add(temp);
                         }
+                        db.Requests.RemoveRange(db.Requests.ToList());
+                        db.Senders.RemoveRange(db.Senders.ToList());
                         db.Programmers.RemoveRange(db.Programmers.ToList());
+                        db.Requests.AddRange(LoadeddatafromtextfileRequests);
+                        db.Senders.AddRange(LoadeddatafromtextfileSenders);
                         db.Programmers.AddRange(Loadeddatafromtextfileprogrammers);
                         db.SaveChanges();
                     }
