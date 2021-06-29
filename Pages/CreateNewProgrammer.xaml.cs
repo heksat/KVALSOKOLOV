@@ -45,6 +45,7 @@ namespace KVALSOKOLOV.Pages
                 {
                     Programmers newprogrammer = new Programmers()
                     {
+                        id = Guid.NewGuid(),
                         LName = Lname.Text.Trim(),
                         FName = Fname.Text.Trim(),
                         SName = Sname.Text.Trim()

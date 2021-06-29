@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="LName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SName" Type="nvarchar" MaxLength="50" />
@@ -24,14 +24,14 @@
           <Property Name="description" Type="nvarchar" MaxLength="255" />
           <Property Name="Register" Type="datetime" Nullable="false" />
           <Property Name="DateDone" Type="datetime" />
-          <Property Name="Programmer" Type="int" />
-          <Property Name="Sender" Type="int" Nullable="false" />
+          <Property Name="Programmer" Type="uniqueidentifier" />
+          <Property Name="Sender" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="Senders">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="LName" Type="nvarchar" MaxLength="50" />
           <Property Name="FName" Type="nvarchar" MaxLength="50" />
           <Property Name="SName" Type="nvarchar" MaxLength="50" />
@@ -126,7 +126,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Guid" Nullable="false" />
           <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -142,8 +142,8 @@
           <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Register" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateDone" Type="DateTime" Precision="3" />
-          <Property Name="Programmer" Type="Int32" />
-          <Property Name="Sender" Type="Int32" Nullable="false" />
+          <Property Name="Programmer" Type="Guid" />
+          <Property Name="Sender" Type="Guid" Nullable="false" />
           <NavigationProperty Name="Programmers" Relationship="Self.FK_Requests_Programmers" FromRole="Requests" ToRole="Programmers" />
           <NavigationProperty Name="Senders" Relationship="Self.FK_Requests_Senders" FromRole="Requests" ToRole="Senders" />
         </EntityType>
@@ -151,7 +151,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Guid" Nullable="false" />
           <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

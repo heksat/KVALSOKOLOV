@@ -20,7 +20,7 @@ namespace KVALSOKOLOV
             this.Requests = new HashSet<Requests>();
         }
     
-        public int id { get; set; }
+        public System.Guid id { get; set; }
         public string LName { get; set; }
         public string FName { get; set; }
         public string SName { get; set; }

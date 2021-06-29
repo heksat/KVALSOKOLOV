@@ -54,11 +54,24 @@ namespace KVALSOKOLOV.Pages
 
                             foreach (var req in db.Requests)
                             {
+                                await writer.WriteLineAsync(req.id.ToString());
                                 await writer.WriteLineAsync(req.Name);
                                 await writer.WriteLineAsync(req.description);
                                 await writer.WriteLineAsync(req.Register.ToString());
                                 await writer.WriteLineAsync(req.DateDone.ToString());
                                 await writer.WriteLineAsync(req.DateDone.ToString());
+
+                            }
+                            await writer.WriteLineAsync(db.Senders.Count().ToString());
+
+                            foreach (var sen in db.Senders)
+                            {
+                                await writer.WriteLineAsync(sen.id.ToString());
+                                await writer.WriteLineAsync(sen.LName);
+                                await writer.WriteLineAsync(sen.FName);
+                                await writer.WriteLineAsync(sen.SName);
+                                await writer.WriteLineAsync(sen.datereg.ToString());
+                                await writer.WriteLineAsync(sen.Version);
 
                             }
                             await writer.WriteLineAsync(db.Programmers.Count().ToString());

@@ -19,8 +19,8 @@ namespace KVALSOKOLOV
         public string description { get; set; }
         public System.DateTime Register { get; set; }
         public Nullable<System.DateTime> DateDone { get; set; }
-        public Nullable<int> Programmer { get; set; }
-        public int Sender { get; set; }
+        public Nullable<System.Guid> Programmer { get; set; }
+        public System.Guid Sender { get; set; }
     
         public virtual Programmers Programmers { get; set; }
         public virtual Senders Senders { get; set; }

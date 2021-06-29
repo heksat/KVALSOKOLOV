@@ -32,10 +32,6 @@
         <Button Content="Обновить" Canvas.Left="645" Canvas.Top="22" Width="134" Height="47"/>
         <Button Content="Назад" Canvas.Left="665" Canvas.Top="366" Width="94" Height="39" Click="Back_Click"/>
         <TextBlock Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="10" Height="34" Width="106" Text="Поиск по:" FontSize="22"/>
-        <Button Content="Сохр. в текст. файл" Canvas.Left="652" Canvas.Top="112" Width="127" Height="32" Click="SaveText_Click"/>
-        <Button Content="Загр. из текст. файла" Canvas.Left="652" Canvas.Top="167" Width="127" Height="29" Click="LoadText_Click"/>
-        <Button Content="Сохр. в бин. файл" Canvas.Left="652" Canvas.Top="219" Width="127" Height="29" Click="SaveBin_Click"/>
-        <Button Content="Загр. из бин. файла" Canvas.Left="652" Canvas.Top="267" Width="127" Height="29" Click="LoadBin_Click"/>
         <Button Content="Добавить" Canvas.Left="652" Canvas.Top="314" Width="127" Height="25" Click="ADD_Click"/>
 
     </Canvas>
