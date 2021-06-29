@@ -58,12 +58,12 @@ namespace KVALSOKOLOV.Pages
 
                             foreach (var req in db.Requests)
                             {
-                                await writer.WriteLineAsync(req.id.ToString());
                                 await writer.WriteLineAsync(req.Name);
                                 await writer.WriteLineAsync(req.description);
                                 await writer.WriteLineAsync(req.Register.ToString());
                                 await writer.WriteLineAsync(req.DateDone.ToString());
-                                await writer.WriteLineAsync(req.DateDone.ToString());
+                                await writer.WriteLineAsync(req.Programmer.ToString());
+                                await writer.WriteLineAsync(req.Sender.ToString());
 
                             }
                             await writer.WriteLineAsync(db.Senders.Count().ToString());
@@ -123,9 +123,19 @@ namespace KVALSOKOLOV.Pages
                         for (int i = 0; i < count; i++)
                         {
                             var temp = new Requests();
-                            temp.id = Int32.Parse(await reader.ReadLineAsync());//Int32.Parse(await reader.ReadLineAsync());
                             temp.Name = await reader.ReadLineAsync();
                             temp.description = await reader.ReadLineAsync();
+                            temp.Register = DateTime.Parse(await reader.ReadLineAsync());
+                            DateTime tempdate;
+                            if (DateTime.TryParse(await reader.ReadLineAsync(),out tempdate))
+                            {
+                                temp.DateDone = tempdate;
+                            }
+                            else
+                            {
+                                temp.DateDone = null;
+                            }
+                            temp.Programmer = Guid.Parse(await reader.ReadLineAsync());
                             temp.Sender = Guid.Parse(await reader.ReadLineAsync());
                             LoadeddatafromtextfileRequests.Add(temp);
                         }
